@@ -6,9 +6,10 @@ const Navbar = () => {
   return (
     <nav className="fixed top-5 left-8 max-[1200px]:left-7 max-[1000px]:left-5 max-[600px]:left-3 max-[400px]:left-2 w-[95%] bg-secondary/70 backdrop-blur-xs rounded-full z-10 shadow-lg">
       <div className="container mx-auto px-10 py-5 flex justify-between items-center">
-        <h1 className="text-2xl font-bold text-white hover:text-primary transition-colors duration-300">
-          Adınız
+        <h1 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-orange-300 via-purple-400 to-blue-400 transition-colors duration-100 ease-in-out">
+          Mustafa Nahsan
         </h1>
+
         <div className="md:hidden">
           <button
             onClick={() => setIsOpen(!isOpen)}

@@ -2,7 +2,7 @@ import React from "react";
 
 const About = () => {
   return (
-    <div className="relative top-0 min-h-screen bg-secondary text-white">
+    <div className="relative min-h-screen bg-black text-white pt-20">
       {/* Hero Section with Dark Background */}
       <section className="relative pt-20 pb-12">
         <div className="container mx-auto px-4">
@@ -13,11 +13,13 @@ const About = () => {
               </h1>
               <p className="text-lg mb-6">
                 Ben{" "}
-                <span className="text-primary font-semibold">David James</span>,
-                tutkulu bir web geliştirici ve tasarımcı olarak dijital dünyada
-                yaratıcı çözümler sunuyorum. Modern teknolojileri kullanarak
-                kullanıcı dostu ve etkileyici web deneyimleri oluşturmak için
-                çalışıyorum.
+                <span className="text-primary font-semibold">
+                  Mustafa Nahsan
+                </span>
+                , tutkulu bir web geliştirici ve tasarımcı olarak dijital
+                dünyada yaratıcı çözümler sunuyorum. Modern teknolojileri
+                kullanarak kullanıcı dostu ve etkileyici web deneyimleri
+                oluşturmak için çalışıyorum.
               </p>
               <p className="text-lg mb-6">
                 Her projede kullanıcı deneyimini ön planda tutarak, hem görsel
@@ -43,13 +45,13 @@ const About = () => {
             </div>
             <div className="md:w-1/2 md:pl-12">
               <div className="relative">
-                <div className="bg-primary/20 w-64 h-64 md:w-80 md:h-80 rounded-full absolute -top-4 -left-4"></div>
+                <div className="bg-primary/20 w-64 h-64 md:w-80 md:h-80 rounded-full absolute -top-0 -left-0"></div>
                 <img
-                  src="/api/placeholder/400/400"
-                  alt="David James"
-                  className="relative z-10 rounded-2xl w-64 h-64 md:w-80 md:h-80 object-cover border-4 border-primary"
+                  src="src/assets/img/potfoypic.png"
+                  alt="Mustafa Nahsan"
+                  className="relative z-10 rounded-full w-64 h-64 md:w-80 md:h-80 object-cover border-4 [transform:scalex(-1)] border-primary"
                 />
-                <div className="absolute -bottom-4 -right-4 w-32 h-32 bg-primary/30 rounded-full"></div>
+                <div className="absolute -bottom-0 -right-0 w-32 h-32 bg-primary/30 rounded-full"></div>
               </div>
             </div>
           </div>

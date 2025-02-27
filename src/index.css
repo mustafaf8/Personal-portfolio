@@ -1,6 +1,6 @@
 @import "tailwindcss";
-@tailwind base;
-@tailwind components;
+/* @tailwind base;
+@tailwind components; */
 @tailwind utilities;
 
 /* Özel CSS değişkenlerini @theme bloğu içinde tanımlama */
@@ -10,12 +10,12 @@
 }
 
 /* Global kapsamda değişkenleri tanımlama */
-@tailwind base {
+/* @tailwind base {
   :root {
     --color-primary: #8c064b;
     --color-secondary: #1c0712;
   }
-}
+} */
 
 /* Özel renkleri Tailwind sınıflarında kullanma */
 @layer utilities {
@@ -60,6 +60,9 @@
   }
 }
 @layer base {
+  html {
+    background-color: #000;
+  }
   @keyframes float {
     0% {
       background-position: 0% 0%;
