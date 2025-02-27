@@ -1,0 +1,74 @@
+@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Özel CSS değişkenlerini @theme bloğu içinde tanımlama */
+@theme {
+  --color-primary: #ab1aa1; /* Mor ton */
+  --color-secondary: #170816; /* Koyu mor ton */
+}
+
+/* Global kapsamda değişkenleri tanımlama */
+@tailwind base {
+  :root {
+    --color-primary: #8c064b;
+    --color-secondary: #1c0712;
+  }
+}
+
+/* Özel renkleri Tailwind sınıflarında kullanma */
+@layer utilities {
+  .text-primary {
+    color: var(--color-primary);
+  }
+  .bg-primary {
+    background-color: var(--color-primary);
+  }
+  .text-secondary {
+    color: var(--color-secondary);
+  }
+  .bg-secondary {
+    background-color: var(--color-secondary);
+  }
+}
+@layer base {
+  @keyframes sparkle {
+    0% {
+      opacity: 0;
+      transform: scale(0);
+    }
+    50% {
+      opacity: 1;
+      transform: scale(1);
+    }
+    100% {
+      opacity: 0;
+      transform: scale(0);
+    }
+  }
+}
+@layer utilities {
+  .animate-sparkle {
+    animation: sparkle 2s infinite;
+  }
+  .animation-delay-1000 {
+    animation-delay: 1s;
+  }
+  .animation-delay-2000 {
+    animation-delay: 2s;
+  }
+}
+@layer base {
+  @keyframes float {
+    0% {
+      background-position: 0% 0%;
+    }
+    50% {
+      background-position: 100% 100%;
+    }
+    100% {
+      background-position: 0% 0%;
+    }
+  }
+}
