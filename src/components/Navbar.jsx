@@ -4,7 +4,7 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="fixed top-5 left-8 max-[1200px]:left-7 max-[1000px]:left-5 max-[600px]:left-3 max-[400px]:left-2 w-[95%] bg-secondary/70 backdrop-blur-md rounded-full z-10 shadow-lg">
+    <nav className="fixed top-5 left-8 max-[1200px]:left-7 max-[1000px]:left-5 max-[600px]:left-3 max-[400px]:left-2 w-[95%] bg-secondary/70 backdrop-blur-xs rounded-full z-10 shadow-lg">
       <div className="container mx-auto px-10 py-5 flex justify-between items-center">
         <h1 className="text-2xl font-bold text-white hover:text-primary transition-colors duration-300">
           Adınız
@@ -33,7 +33,7 @@ const Navbar = () => {
         <ul
           className={`md:flex space-x-6 ${
             isOpen
-              ? "block absolute top-full left-0 w-full bg-secondary/80 backdrop-blur-md p-4 rounded-b-2xl"
+              ? "block absolute top-full left-0 w-full bg-secondary/50 backdrop-blur-md p-4 rounded-b-2xl"
               : "hidden"
           } md:block`}
         >

@@ -28,7 +28,7 @@ const Home = () => {
         this.currentSpeed = this.baseSpeed;
         this.color = `hsl(${Math.random() * 60 + 270}, 100%, 60%)`; // Daha parlak renkler
         this.size = Math.random() * 6 + 4; // Kalınlık
-        this.lifespan = Math.floor(Math.random() * 300) + 300; // Yaşam süresi değiştirilmedi
+        this.lifespan = Math.floor(Math.random() * 300) + 100; // Yaşam süresi değiştirilmedi
         this.life = 0;
         this.alive = true;
         this.baseTurnSpeed = Math.random() * 0.05 + 0.1; // Temel dönüş hızı
@@ -53,7 +53,7 @@ const Home = () => {
           const targetAngle = Math.atan2(dy, dx);
 
           // Yılanın hedefe olan mesafesine bağlı olarak davranışını ayarla
-          const maxFollowDist = 800; // Daha geniş takip mesafesi
+          const maxFollowDist = 300; // Daha geniş takip mesafesi
 
           if (distToTarget < maxFollowDist) {
             // Hedefe yakınlık faktörü (0-1 arası)
@@ -80,7 +80,7 @@ const Home = () => {
             while (angleDiff < -Math.PI) angleDiff += Math.PI * 2;
 
             // Daha düzgün dönüşler için angleDiff miktarını sınırla
-            const maxTurn = 0.15; // Maximum anlık dönüş
+            const maxTurn = 0.2; // Maximum anlık dönüş
             angleDiff = Math.max(Math.min(angleDiff, maxTurn), -maxTurn);
 
             // Açıyı güncelle
@@ -194,7 +194,7 @@ const Home = () => {
         ctx.arc(
           this.segments[0].x,
           this.segments[0].y,
-          this.size * 1.5,
+          this.size * 2,
           0,
           Math.PI * 2
         );
@@ -223,8 +223,8 @@ const Home = () => {
         }
       }
 
-      // Rastgele yeni yılanlar ekle, toplam 3-5 yılan
-      if (snakes.length < 5 && Math.random() < 0.03) {
+      // Rastgele yeni yılanlar ekle, toplam 3-5 yılann
+      if (snakes.length < 5 && Math.random() < 0.006) {
         snakes.push(new Snake());
       }
 
@@ -238,7 +238,7 @@ const Home = () => {
     }
 
     // Başlangıçta 3 yılan ekle
-    for (let i = 0; i < 3; i++) {
+    for (let i = 0; i < 5; i++) {
       snakes.push(new Snake());
     }
 
@@ -267,13 +267,16 @@ const Home = () => {
     // 3 saniye sonra hedefi kaldır
     const timer = setTimeout(() => {
       setTargetPosition({ x: null, y: null });
-    }, 3000);
+    }, 1000);
 
     setTargetTimer(timer);
   };
 
   return (
-    <div className="relative min-h-screen" onClick={handleClick}>
+    <div
+      className="relative min-h-screen overflow-y-hidden"
+      onClick={handleClick}
+    >
       {/* Siyah arkaplan */}
       <div className="fixed top-0 left-0 w-full h-full bg-black z-[-2]"></div>
 
