@@ -29,7 +29,7 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`fixed top-5 left-0 w-full bg-secondary/70 backdrop-blur-xs rounded-b-2xl z-30 shadow-lg transition-transform duration-300 ease-in-out ${
+      className={`fixed top-5 left-0 w-full bg-secondary/70 backdrop-blur-xs rounded-full z-30 shadow-lg transition-transform duration-300 ease-in-out ${
         scrollDirection === "down" && !isOpen
           ? "-translate-y-25"
           : "translate-y-0"

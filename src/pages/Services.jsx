@@ -1,12 +1,55 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+import FaqItem from "../components/FaqItem.jsx"; // FAQ bileşeninizi uygun yoldan içeri aktarın
 
 const Services = () => {
-  // Aktif servis state'i
+  // İlk yükleme (loading) durumu
+  const [loading, setLoading] = useState(true);
+  // Loading bittikten sonra animasyonların başlaması için ek state
+  const [startAnimation, setStartAnimation] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false);
+      // Loading bittiğinde 1.5s sonra animasyonları başlat
+      const animTimer = setTimeout(() => {
+        setStartAnimation(true);
+      });
+      return () => clearTimeout(animTimer);
+    }, 1500);
+    return () => clearTimeout(timer);
+  }, []);
+
   const [activeService, setActiveService] = useState(null);
-  // Aktif SSS state'i
   const [activeFaq, setActiveFaq] = useState(null);
 
-  // Hizmetleri tanımla
+  // Intersection Observer referansları
+  const [titleRef, titleInView] = useInView({
+    threshold: 0.3,
+    triggerOnce: true,
+  });
+  const [servicesRef, servicesInView] = useInView({
+    threshold: 0.1,
+    triggerOnce: true,
+  });
+  const [faqRef, faqInView] = useInView({
+    threshold: 0.3,
+    triggerOnce: true,
+  });
+  const [ctaRef, ctaInView] = useInView({
+    threshold: 0.5,
+    triggerOnce: true,
+  });
+
+  // Hizmet kartları için animasyon sınıfı
+  const getServiceAnimationClass = (index) => {
+    return servicesInView && startAnimation
+      ? "opacity-100 translate-y-0 transition-all duration-700"
+      : "opacity-0 translate-y-8";
+  };
+
+  // Hizmet verileri
   const services = [
     {
       id: 1,
@@ -250,7 +293,7 @@ const Services = () => {
     },
   ];
 
-  // SSS Soruları
+  // SSS verileri
   const faqs = [
     {
       id: 1,
@@ -284,7 +327,6 @@ const Services = () => {
     },
   ];
 
-  // Hizmete tıklanınca detayı göster/gizle
   const toggleService = (id) => {
     if (activeService === id) {
       setActiveService(null);
@@ -299,221 +341,330 @@ const Services = () => {
     }
   };
 
-  // SSS'e tıklanınca aç/kapa
   const toggleFaq = (id) => {
     setActiveFaq(activeFaq === id ? null : id);
   };
 
-  return (
-    <div className="min-h-screen py-20 px-4 md:px-8 lg:px-16 bg-gradient-to-br from-black via-purple-950/20 to-black">
-      {/* Başlık Bölümü */}
-      <div className="text-center mb-16 pt-12">
-        <h1 className="text-4xl md:text-5xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-orange-300 via-purple-400 to-blue-400">
-          Hizmetlerim
-        </h1>
-        <p className="text-lg text-gray-300 max-w-2xl mx-auto">
-          Vizyonunuzu dijital dünyada hayata geçirmeniz için ihtiyacınız olan
-          tüm hizmetleri sunuyorum. Projenize özel çözümlerle hedeflerinize
-          ulaşmanıza yardımcı oluyorum.
-        </p>
-      </div>
+  // Tailwind için özel animasyon sınıflarını ekleyelim
+  useEffect(() => {
+    const style = document.createElement("style");
+    style.textContent = `
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      
+      @keyframes fadeInLeft {
+        from {
+          opacity: 0;
+          transform: translateX(-30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+      
+      @keyframes fadeInRight {
+        from {
+          opacity: 0;
+          transform: translateX(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+      
+      .animate-fade-in-up {
+        animation: fadeInUp 0.8s ease forwards;
+      }
+      
+      .animate-fade-in-left {
+        animation: fadeInLeft 0.8s ease forwards;
+      }
+      
+      .animate-fade-in-right {
+        animation: fadeInRight 0.8s ease forwards;
+      }
+      
+      .delay-100 {
+        animation-delay: 100ms;
+      }
+      
+      .delay-200 {
+        animation-delay: 200ms;
+      }
+      
+      .delay-300 {
+        animation-delay: 300ms;
+      }
+      
+      .delay-400 {
+        animation-delay: 400ms;
+      }
+      
+      .delay-500 {
+        animation-delay: 500ms;
+      }
+      
+      .delay-600 {
+        animation-delay: 600ms;
+      }
+    `;
+    document.head.appendChild(style);
+    return () => {
+      document.head.removeChild(style);
+    };
+  }, []);
 
-      {/* Hizmetler Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
-        {services.map((service) => (
-          <div
-            key={service.id}
-            className={`relative cursor-pointer transition-all duration-300 ${
-              activeService === service.id
-                ? "bg-primary/20 shadow-lg shadow-primary/20"
-                : "bg-secondary/40 hover:bg-secondary/60"
-            } rounded-xl overflow-hidden backdrop-blur-sm`}
-            onClick={() => toggleService(service.id)}
+  return (
+    <>
+      {/* Loading Ekranı */}
+      {loading && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black">
+          <motion.div
+            animate={{
+              scale: [1, 1.5, 1],
+              rotate: [0, 180, 360],
+            }}
+            transition={{
+              duration: 1.5,
+              repeat: Infinity,
+              repeatType: "loop",
+            }}
+            className="w-24 h-24 border-t-4 border-l-4 border-purple-500 rounded-full"
+          />
+        </div>
+      )}
+
+      <div className="min-h-screen py-20 px-4 md:px-8 lg:px-16 bg-gradient-to-br from-black via-purple-950/20 to-black">
+        {/* Başlık Bölümü */}
+        <div
+          ref={titleRef}
+          className={`text-center mb-16 pt-12 ${
+            !loading && titleInView ? "animate-fade-in-up" : "opacity-0"
+          }`}
+          style={!loading && titleInView ? { animationDelay: "" } : {}}
+        >
+          <h1 className="text-4xl md:text-5xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-orange-100 via-purple-400 to-blue-800">
+            Hizmetlerim
+          </h1>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={!loading ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            className="text-lg text-gray-300 max-w-2xl mx-auto"
           >
-            <div className="p-8">
-              <div
-                className={`mb-6 text-white ${
-                  activeService === service.id
-                    ? "text-primary"
-                    : "text-purple-400"
-                }`}
-              >
-                {service.icon}
-              </div>
-              <h3 className="text-xl font-bold text-white mb-3">
-                {service.title}
-              </h3>
-              <p className="text-gray-300">{service.shortDesc}</p>
-              <div className="mt-6 text-sm font-medium flex items-center">
-                <span
-                  className={`${
+            Vizyonunuzu dijital dünyada hayata geçirmeniz için ihtiyacınız olan
+            tüm hizmetleri sunuyorum. Projenize özel çözümlerle hedeflerinize
+            ulaşmanıza yardımcı oluyorum.
+          </motion.p>
+        </div>
+
+        {/* Hizmetler Grid */}
+        <div
+          ref={servicesRef}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16"
+        >
+          {services.map((service, index) => (
+            <div
+              key={service.id}
+              // Loading bittikten sonra ek gecikme ekleyelim: mevcut delay (index * 150ms) + 1500ms
+              style={
+                !loading ? { animationDelay: `${1500 + index * 150}ms` } : {}
+              }
+              className={`relative cursor-pointer transition-all duration-700 ${
+                activeService === service.id
+                  ? "bg-primary/20 shadow-lg shadow-primary/20"
+                  : "bg-secondary/40 hover:bg-secondary/60"
+              } rounded-xl overflow-hidden backdrop-blur-sm ${
+                servicesInView && startAnimation
+                  ? "opacity-100 translate-y-0"
+                  : "opacity-0 translate-y-8"
+              }`}
+              onClick={() => toggleService(service.id)}
+            >
+              <div className="p-8">
+                <div
+                  className={`mb-6 text-white ${
                     activeService === service.id
                       ? "text-primary"
                       : "text-purple-400"
                   }`}
                 >
-                  {activeService === service.id
-                    ? "Detayları Gizle"
-                    : "Detayları Gör"}
-                </span>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className={`w-4 h-4 ml-2 transition-transform ${
-                    activeService === service.id
-                      ? "rotate-180 text-primary"
-                      : "text-purple-400"
-                  }`}
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M19 9l-7 7-7-7"
-                  />
-                </svg>
-              </div>
-            </div>
-            {activeService === service.id && (
-              <div
-                id={`service-detail-${service.id}`}
-                className="mt-8 p-8 bg-black/50 border-t border-primary/30 animate-fade-in"
-              >
-                <div className="mb-6">
-                  <h4 className="text-lg font-semibold text-purple-300 mb-2">
-                    Detaylı Bilgi
-                  </h4>
-                  <p className="text-gray-300">{service.longDesc}</p>
+                  {service.icon}
                 </div>
-                <div className="mb-6">
-                  <h4 className="text-lg font-semibold text-purple-300 mb-2">
-                    Kullanılan Teknolojiler
-                  </h4>
-                  <div className="flex flex-wrap gap-2">
-                    {service.technologies.map((tech, index) => (
-                      <span
-                        key={index}
-                        className="text-xs bg-purple-900/50 text-purple-200 px-3 py-1 rounded-full"
-                      >
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-                <div>
-                  <h4 className="text-lg font-semibold text-purple-300 mb-2">
-                    Çalışma Süreci
-                  </h4>
-                  <ol className="space-y-2">
-                    {service.process.map((step, index) => (
-                      <li
-                        key={index}
-                        className="flex items-center text-gray-300"
-                      >
-                        <span className="flex items-center justify-center w-6 h-6 bg-primary/30 text-white rounded-full text-xs mr-3">
-                          {index + 1}
-                        </span>
-                        {step}
-                      </li>
-                    ))}
-                  </ol>
-                </div>
-                <div className="mt-8">
-                  <a
-                    href="/contact"
-                    className="inline-flex items-center bg-gradient-to-r from-purple-500 to-blue-600 text-white px-6
-                    py-2 rounded-3xl hover:from-purple-600 hover:to-blue-700
-                    transition-colors duration-300"
-                  >
-                    Bu Hizmet İçin İletişime Geç
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="h-4 w-4 ml-2"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M14 5l7 7m0 0l-7 7m7-7H3"
-                      />
-                    </svg>
-                  </a>
-                </div>
-              </div>
-            )}
-          </div>
-        ))}
-      </div>
-
-      {/* SSS Bölümü (Akordeon Tarzı) */}
-      <div className="my-20 bg-secondary/30 backdrop-blur-sm p-8 md:p-12 rounded-2xl">
-        <h2 className="text-3xl font-bold text-white mb-8 text-center">
-          Sık Sorulan Sorular
-        </h2>
-        <div className="space-y-4 max-w-3xl mx-auto">
-          {faqs.map((faq) => (
-            <div
-              key={faq.id}
-              className="bg-secondary/50 rounded-xl overflow-hidden"
-            >
-              <button
-                className="w-full p-6 text-left flex justify-between items-center"
-                onClick={() => toggleFaq(faq.id)}
-              >
-                <h3 className="text-lg font-semibold text-white">
-                  {faq.question}
+                <h3 className="text-xl font-bold text-white mb-3">
+                  {service.title}
                 </h3>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className={`w-5 h-5 transition-transform duration-300 ${
-                    activeFaq === faq.id
-                      ? "rotate-180 text-primary"
-                      : "text-purple-400"
-                  }`}
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
+                <p className="text-gray-300">{service.shortDesc}</p>
+                <div className="mt-6 text-sm font-medium flex items-center">
+                  <span
+                    className={`${
+                      activeService === service.id
+                        ? "text-primary"
+                        : "text-purple-400"
+                    }`}
+                  >
+                    {activeService === service.id
+                      ? "Detayları Gizle"
+                      : "Detayları Gör"}
+                  </span>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className={`w-4 h-4 ml-2 transition-transform ${
+                      activeService === service.id
+                        ? "rotate-180 text-primary"
+                        : "text-purple-400"
+                    }`}
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M19 9l-7 7-7-7"
+                    />
+                  </svg>
+                </div>
+              </div>
+              {activeService === service.id && (
+                <div
+                  id={`service-detail-${service.id}`}
+                  className="mt-8 p-8 bg-black/50 border-t border-primary/30 animate-fade-in"
                 >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M19 9l-7 7-7-7"
-                  />
-                </svg>
-              </button>
-              {activeFaq === faq.id && (
-                <div className="p-6 pt-0 text-gray-300">
-                  <p>{faq.answer}</p>
+                  <div className="mb-6">
+                    <h4 className="text-lg font-semibold text-purple-300 mb-2">
+                      Detaylı Bilgi
+                    </h4>
+                    <p className="text-gray-300">{service.longDesc}</p>
+                  </div>
+                  <div className="mb-6">
+                    <h4 className="text-lg font-semibold text-purple-300 mb-2">
+                      Kullanılan Teknolojiler
+                    </h4>
+                    <div className="flex flex-wrap gap-2">
+                      {service.technologies.map((tech, index) => (
+                        <span
+                          key={index}
+                          className="text-xs bg-purple-900/50 text-purple-200 px-3 py-1 rounded-full"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                  <div>
+                    <h4 className="text-lg font-semibold text-purple-300 mb-2">
+                      Çalışma Süreci
+                    </h4>
+                    <ol className="space-y-2">
+                      {service.process.map((step, index) => (
+                        <li
+                          key={index}
+                          className="flex items-center text-gray-300"
+                        >
+                          <span className="flex items-center justify-center w-6 h-6 bg-primary/30 text-white rounded-full text-xs mr-3">
+                            {index + 1}
+                          </span>
+                          {step}
+                        </li>
+                      ))}
+                    </ol>
+                  </div>
+                  <div className="mt-8">
+                    <a
+                      href="/contact"
+                      className="inline-flex items-center bg-gradient-to-r from-purple-500 to-blue-600 text-white px-6 py-2 rounded-3xl hover:from-purple-600 hover:to-blue-700 transition-colors duration-300"
+                    >
+                      Bu Hizmet İçin İletişime Geç
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="h-4 w-4 ml-2"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M14 5l7 7m0 0l-7 7m7-7H3"
+                        />
+                      </svg>
+                    </a>
+                  </div>
                 </div>
               )}
             </div>
           ))}
         </div>
-      </div>
 
-      {/* CTA Bölümü */}
-      <div className="text-center mt-20 mb-0 bg-gradient-to-r from-purple-900/30 to-blue-900/30 p-10 rounded-2xl">
-        <h2 className="text-3xl font-bold text-white mb-4">
-          Projenizi Hayata Geçirmeye Hazır mısınız?
-        </h2>
-        <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
-          Fikirlerinizi dijital dünyada gerçeğe dönüştürmek için ilk adımı atın.
-          Ücretsiz danışmanlık için hemen iletişime geçin.
-        </p>
-        <a
-          href="/contact"
-          className="bg-gradient-to-r from-purple-500 to-blue-600 text-white px-6 py-3 rounded-full hover:from-purple-600 hover:to-blue-700 transition-colors duration-300"
+        {/* SSS Bölümü */}
+        <div
+          ref={faqRef}
+          className={`my-20 bg-secondary/30 backdrop-blur-sm p-8 md:p-12 rounded-2xl ${
+            faqInView ? "animate-fade-in-up" : "opacity-0"
+          }`}
         >
-          Ücretsiz Danışmanlık Al
-        </a>
+          <h2 className="text-3xl font-bold text-white mb-8 text-center">
+            Sık Sorulan Sorular
+          </h2>
+          <div className="space-y-4 max-w-3xl mx-auto">
+            {faqs.map((faq, index) => (
+              <FaqItem
+                key={faq.id}
+                faq={faq}
+                index={index}
+                activeFaq={activeFaq}
+                toggleFaq={toggleFaq}
+              />
+            ))}
+          </div>
+        </div>
+
+        {/* CTA Bölümü */}
+        <div
+          ref={ctaRef}
+          className={`text-center mt-20 mb-0 bg-gradient-to-r from-purple-900/30 to-blue-900/30 p-10 rounded-2xl ${
+            ctaInView ? "animate-fade-in-up" : "opacity-0"
+          }`}
+        >
+          <h2
+            className={`text-3xl font-bold text-white mb-4 ${
+              ctaInView ? "animate-fade-in-up" : "opacity-0"
+            }`}
+          >
+            Projenizi Hayata Geçirmeye Hazır mısınız?
+          </h2>
+          <p
+            className={`text-gray-300 mb-8 max-w-2xl mx-auto ${
+              ctaInView ? "animate-fade-in-up delay-200" : "opacity-0"
+            }`}
+          >
+            Fikirlerinizi dijital dünyada gerçeğe dönüştürmek için ilk adımı
+            atın. Ücretsiz danışmanlık için hemen iletişime geçin.
+          </p>
+          <a
+            href="/contact"
+            className={`bg-gradient-to-r from-purple-500 to-blue-600 text-white px-6 py-3 rounded-full hover:from-purple-600 hover:to-blue-700 transition-colors duration-300 ${
+              ctaInView ? "animate-fade-in-up delay-300" : "opacity-0"
+            }`}
+          >
+            Ücretsiz Danışmanlık Al
+          </a>
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

@@ -1,9 +1,19 @@
 import React, { useEffect, useRef, useState } from "react";
+import { motion } from "framer-motion";
 
 const Home = () => {
   const canvasRef = useRef(null);
   const [targetPosition, setTargetPosition] = useState({ x: null, y: null });
   const [targetTimer, setTargetTimer] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  // Loading ekranını 1.5 saniye sonra gizle
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 1500);
+    return () => clearTimeout(timer);
+  }, []);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -286,21 +296,37 @@ const Home = () => {
         className="fixed top-0 left-0 w-full h-full z-[-1]"
       />
 
-      {/* Ana içerik */}
-      <div className="flex items-center justify-center min-h-screen text-white px-4">
+      {/* Loading Ekranı */}
+      {loading && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black">
+          <div className="w-24 h-24 border-t-4 border-l-4 border-purple-500 rounded-full animate-spin"></div>
+        </div>
+      )}
+
+      {/* Ana içerik - Animasyonlu giriş */}
+      <motion.div
+        initial={{ opacity: 0, y: 200 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 2 }}
+        className="flex items-center justify-center min-h-screen text-white px-4"
+      >
         <div className="text-center space-y-6 max-w-2xl">
           {/* Başlık */}
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight ">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight">
             Merhaba, Ben{" "}
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-300 to-purple-600">
               Mustafa
             </span>
           </h1>
-
           {/* Alt Başlık */}
-          <p className="text-lg sm:text-xl md:text-2xl italic text-blue-300 animate-pulse drop-shadow-md">
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={!loading ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            className="text-lg sm:text-xl md:text-2xl italic text-blue-300 animate-pulse drop-shadow-md"
+          >
             Yaratıcı Web Tasarımları ve Fonksiyonel Çözümler Sunuyorum
-          </p>
+          </motion.p>
 
           {/* Buton */}
           <a
@@ -310,7 +336,7 @@ const Home = () => {
             Projelerimi Gör
           </a>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 };
