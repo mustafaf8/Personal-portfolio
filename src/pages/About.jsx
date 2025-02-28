@@ -53,8 +53,8 @@ const About = () => {
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black">
           <motion.div
             animate={{
-              scale: [1, 1.5, 1],
-              rotate: [0, 180, 360],
+              scale: [1, 1.0, 1],
+              rotate: [0, 60, 120, 180, 240, 300, 360],
             }}
             transition={{
               duration: 1.5,

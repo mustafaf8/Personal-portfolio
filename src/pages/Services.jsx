@@ -42,13 +42,6 @@ const Services = () => {
     triggerOnce: true,
   });
 
-  // Hizmet kartları için animasyon sınıfı
-  const getServiceAnimationClass = (index) => {
-    return servicesInView && startAnimation
-      ? "opacity-100 translate-y-0 transition-all duration-700"
-      : "opacity-0 translate-y-8";
-  };
-
   // Hizmet verileri
   const services = [
     {
@@ -431,8 +424,8 @@ const Services = () => {
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black">
           <motion.div
             animate={{
-              scale: [1, 1.5, 1],
-              rotate: [0, 180, 360],
+              scale: [1, 1.0, 1],
+              rotate: [0, 60, 120, 180, 240, 300, 360],
             }}
             transition={{
               duration: 1.5,
