@@ -289,15 +289,23 @@ const Home = () => {
       {/* Ana içerik */}
       <div className="flex items-center justify-center min-h-screen text-white px-4">
         <div className="text-center space-y-6 max-w-2xl">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight">
-            Merhaba, Ben <span className="text-primary">Adınız</span>
+          {/* Başlık */}
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight ">
+            Merhaba, Ben{" "}
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-300 to-purple-600">
+              Mustafa
+            </span>
           </h1>
-          <p className="text-lg sm:text-xl md:text-2xl text-gray-300 italic animate-pulse">
+
+          {/* Alt Başlık */}
+          <p className="text-lg sm:text-xl md:text-2xl italic text-blue-300 animate-pulse drop-shadow-md">
             Yaratıcı Web Tasarımları ve Fonksiyonel Çözümler Sunuyorum
           </p>
+
+          {/* Buton */}
           <a
             href="/portfolio"
-            className="inline-block bg-primary text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-secondary hover:scale-105 transition-transform duration-300"
+            className="inline-block px-8 py-4 rounded-full font-semibold text-lg text-white bg-gradient-to-r from-purple-500 to-blue-600 hover:from-purple-600 hover:to-blue-700 hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-blue-500/50"
           >
             Projelerimi Gör
           </a>

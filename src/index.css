@@ -1,21 +1,10 @@
 @import "tailwindcss";
-/* @tailwind base;
-@tailwind components; */
-@tailwind utilities;
 
 /* Özel CSS değişkenlerini @theme bloğu içinde tanımlama */
 @theme {
   --color-primary: #ab1aa1; /* Mor ton */
   --color-secondary: #170816; /* Koyu mor ton */
 }
-
-/* Global kapsamda değişkenleri tanımlama */
-/* @tailwind base {
-  :root {
-    --color-primary: #8c064b;
-    --color-secondary: #1c0712;
-  }
-} */
 
 /* Özel renkleri Tailwind sınıflarında kullanma */
 @layer utilities {
@@ -30,6 +19,21 @@
   }
   .bg-secondary {
     background-color: var(--color-secondary);
+  }
+  .hover-gradient-text {
+    color: white; /* Normal durumda metin beyaz */
+  }
+
+  .hover-gradient-text:hover {
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent; /* Gradientin görünmesi için metni transparan yapıyoruz */
+    background-image: linear-gradient(
+      to right,
+      #ab47bc,
+      #c084fc,
+      #3b82f6
+    ); /* orange-100, purple-400, blue-400 */
   }
 }
 @layer base {

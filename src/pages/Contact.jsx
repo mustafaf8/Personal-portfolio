@@ -54,8 +54,11 @@ const Contact = () => {
           {/* Left Section - Contact Info */}
           <div className="space-y-8">
             <div>
-              <h1 className="text-5xl font-bold mb-6">
-                Get in <span className="text-primary">Touch</span>
+              <h1 className="text-5xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-blue-500 to-purple-600">
+                Get in{" "}
+                <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500">
+                  Touch
+                </span>
               </h1>
               <p className="text-gray-300 text-lg">
                 I'm always open to new opportunities and collaborations. Feel
@@ -66,11 +69,11 @@ const Contact = () => {
 
             {/* Contact Info Cards */}
             <div className="space-y-6 mt-10">
-              <div className="bg-secondary/70 backdrop-blur-md p-6 rounded-xl flex items-start space-x-4">
-                <div className="bg-primary p-3 rounded-lg">
+              <div className="bg-black/50 backdrop-blur-md p-6 rounded-xl flex items-start space-x-4 border border-purple-500/30">
+                <div className="bg-purple-500/20 p-3 rounded-lg">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    className="h-6 w-6"
+                    className="h-6 w-6 text-purple-400"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -84,16 +87,18 @@ const Contact = () => {
                   </svg>
                 </div>
                 <div>
-                  <h3 className="text-xl font-semibold mb-1">Email</h3>
+                  <h3 className="text-xl font-semibold mb-1 text-white">
+                    Email
+                  </h3>
                   <p className="text-gray-300">contact@davidjames.com</p>
                 </div>
               </div>
 
-              <div className="bg-secondary/70 backdrop-blur-md p-6 rounded-xl flex items-start space-x-4">
-                <div className="bg-primary p-3 rounded-lg">
+              <div className="bg-black/50 backdrop-blur-md p-6 rounded-xl flex items-start space-x-4 border border-purple-500/30">
+                <div className="bg-purple-500/20 p-3 rounded-lg">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    className="h-6 w-6"
+                    className="h-6 w-6 text-purple-400"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -113,16 +118,18 @@ const Contact = () => {
                   </svg>
                 </div>
                 <div>
-                  <h3 className="text-xl font-semibold mb-1">Location</h3>
+                  <h3 className="text-xl font-semibold mb-1 text-white">
+                    Location
+                  </h3>
                   <p className="text-gray-300">Istanbul, Turkey</p>
                 </div>
               </div>
 
-              <div className="bg-secondary/70 backdrop-blur-md p-6 rounded-xl flex items-start space-x-4">
-                <div className="bg-primary p-3 rounded-lg">
+              <div className="bg-black/50 backdrop-blur-md p-6 rounded-xl flex items-start space-x-4 border border-purple-500/30">
+                <div className="bg-purple-500/20 p-3 rounded-lg">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    className="h-6 w-6"
+                    className="h-6 w-6 text-purple-400"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -136,7 +143,9 @@ const Contact = () => {
                   </svg>
                 </div>
                 <div>
-                  <h3 className="text-xl font-semibold mb-1">Phone</h3>
+                  <h3 className="text-xl font-semibold mb-1 text-white">
+                    Phone
+                  </h3>
                   <p className="text-gray-300">+90 555 123 4567</p>
                 </div>
               </div>
@@ -144,15 +153,17 @@ const Contact = () => {
 
             {/* Social Media Icons */}
             <div className="mt-10">
-              <h3 className="text-xl font-semibold mb-4">Connect with me</h3>
+              <h3 className="text-xl font-semibold mb-4 text-white">
+                Connect with me
+              </h3>
               <div className="flex space-x-4">
                 <a
                   href="#"
-                  className="bg-secondary/70 p-3 rounded-lg hover:bg-primary transition-colors duration-300"
+                  className="bg-purple-500/20 p-3 rounded-lg hover:bg-purple-500/40 transition-colors duration-300"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    className="h-6 w-6"
+                    className="h-6 w-6 text-purple-400"
                     fill="currentColor"
                     viewBox="0 0 24 24"
                   >
@@ -161,11 +172,11 @@ const Contact = () => {
                 </a>
                 <a
                   href="#"
-                  className="bg-secondary/70 p-3 rounded-lg hover:bg-primary transition-colors duration-300"
+                  className="bg-purple-500/20 p-3 rounded-lg hover:bg-purple-500/40 transition-colors duration-300"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    className="h-6 w-6"
+                    className="h-6 w-6 text-purple-400"
                     fill="currentColor"
                     viewBox="0 0 24 24"
                   >
@@ -174,11 +185,11 @@ const Contact = () => {
                 </a>
                 <a
                   href="#"
-                  className="bg-secondary/70 p-3 rounded-lg hover:bg-primary transition-colors duration-300"
+                  className="bg-purple-500/20 p-3 rounded-lg hover:bg-purple-500/40 transition-colors duration-300"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    className="h-6 w-6"
+                    className="h-6 w-6 text-purple-400"
                     fill="currentColor"
                     viewBox="0 0 24 24"
                   >
@@ -187,11 +198,11 @@ const Contact = () => {
                 </a>
                 <a
                   href="#"
-                  className="bg-secondary/70 p-3 rounded-lg hover:bg-primary transition-colors duration-300"
+                  className="bg-purple-500/20 p-3 rounded-lg hover:bg-purple-500/40 transition-colors duration-300"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    className="h-6 w-6"
+                    className="h-6 w-6 text-purple-400"
                     fill="currentColor"
                     viewBox="0 0 24 24"
                   >
@@ -203,8 +214,10 @@ const Contact = () => {
           </div>
 
           {/* Right Section - Contact Form */}
-          <div className="bg-secondary/70 backdrop-blur-md p-8 rounded-xl">
-            <h2 className="text-3xl font-bold mb-6">Send Me a Message</h2>
+          <div className="bg-black/50 backdrop-blur-md p-8 rounded-xl border border-purple-500/30">
+            <h2 className="text-3xl font-bold mb-6 text-white">
+              Send Me a Message
+            </h2>
 
             {submitStatus === "success" && (
               <div className="mb-6 bg-green-500/20 border border-green-500 p-4 rounded-lg">
@@ -220,7 +233,7 @@ const Contact = () => {
                 <div>
                   <label
                     htmlFor="name"
-                    className="block mb-2 text-sm font-medium"
+                    className="block mb-2 text-sm font-medium text-gray-300"
                   >
                     Your Name
                   </label>
@@ -230,14 +243,14 @@ const Contact = () => {
                     name="name"
                     value={formData.name}
                     onChange={handleChange}
-                    className="w-full bg-black/50 border border-gray-700 text-white rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-primary"
+                    className="w-full bg-black/70 border border-purple-500/50 text-white rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-purple-500"
                     required
                   />
                 </div>
                 <div>
                   <label
                     htmlFor="email"
-                    className="block mb-2 text-sm font-medium"
+                    className="block mb-2 text-sm font-medium text-gray-300"
                   >
                     Email Address
                   </label>
@@ -247,7 +260,7 @@ const Contact = () => {
                     name="email"
                     value={formData.email}
                     onChange={handleChange}
-                    className="w-full bg-black/50 border border-gray-700 text-white rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-primary"
+                    className="w-full bg-black/70 border border-purple-500/50 text-white rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-purple-500"
                     required
                   />
                 </div>
@@ -256,7 +269,7 @@ const Contact = () => {
               <div>
                 <label
                   htmlFor="subject"
-                  className="block mb-2 text-sm font-medium"
+                  className="block mb-2 text-sm font-medium text-gray-300"
                 >
                   Subject
                 </label>
@@ -266,7 +279,7 @@ const Contact = () => {
                   name="subject"
                   value={formData.subject}
                   onChange={handleChange}
-                  className="w-full bg-black/50 border border-gray-700 text-white rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-primary"
+                  className="w-full bg-black/70 border border-purple-500/50 text-white rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-purple-500"
                   required
                 />
               </div>
@@ -274,7 +287,7 @@ const Contact = () => {
               <div>
                 <label
                   htmlFor="message"
-                  className="block mb-2 text-sm font-medium"
+                  className="block mb-2 text-sm font-medium text-gray-300"
                 >
                   Your Message
                 </label>
@@ -284,14 +297,16 @@ const Contact = () => {
                   value={formData.message}
                   onChange={handleChange}
                   rows="6"
-                  className="w-full bg-black/50 border border-gray-700 text-white rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-primary"
+                  className="w-full bg-black/70 border border-purple-500/50 text-white rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-purple-500"
                   required
                 ></textarea>
               </div>
 
               <button
                 type="submit"
-                className="bg-primary hover:bg-primary/90 text-white py-3 px-8 rounded-lg font-medium transition-colors duration-300 flex items-center"
+                className="bg-gradient-to-r from-purple-500 to-blue-600 text-white px-6
+                    py-3 rounded-full hover:from-purple-600 hover:to-blue-700
+                    transition-colors duration-300 flex items-center"
                 disabled={isSubmitting}
               >
                 {isSubmitting ? (
@@ -328,8 +343,8 @@ const Contact = () => {
       </div>
 
       {/* Decorative elements */}
-      <div className="absolute top-40 right-10 w-24 h-24 bg-primary/20 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-40 left-10 w-32 h-32 bg-primary/20 rounded-full blur-3xl"></div>
+      <div className="absolute top-40 right-10 w-24 h-24 bg-purple-500/20 rounded-full blur-3xl"></div>
+      <div className="absolute bottom-40 left-10 w-32 h-32 bg-blue-500/20 rounded-full blur-3xl"></div>
     </div>
   );
 };
