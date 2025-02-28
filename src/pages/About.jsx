@@ -81,7 +81,7 @@ const About = () => {
                   transition={{ duration: 0.8, delay: 0.3 }}
                   className="text-lg text-gray-300 max-w-2xl mx-auto"
                 >
-                  bir software devaloper olarak dijital dünyada yaratıcı
+                  bir software developer olarak dijital dünyada yaratıcı
                   çözümler sunuyorum. Modern teknolojileri kullanarak kullanıcı
                   odaklı etkileyici deneyimler ve çözümler oluşturmak için
                   çalışıyorum.
@@ -310,7 +310,7 @@ const About = () => {
                   >
                     <div className="flex justify-between mb-2">
                       <h3 className="text-xl font-semibold text-white">
-                        Software Devaloper
+                        Software Developer
                       </h3>
                       <span className="text-purple-400">
                         2025 - &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
