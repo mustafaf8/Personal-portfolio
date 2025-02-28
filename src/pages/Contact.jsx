@@ -195,7 +195,7 @@ const Contact = () => {
                     <h3 className="text-sm font-semibold mb-1 text-white">
                       Telefon
                     </h3>
-                    <p className="text-xs text-gray-300">+90 555 123 4567</p>
+                    <p className="text-xs text-gray-300">+90 534 716 8754</p>
                   </div>
                 </div>
               </div>
@@ -212,8 +212,9 @@ const Contact = () => {
                 </h3>
                 <div className="flex space-x-3">
                   <a
-                    href="#"
+                    href="https://www.linkedin.com/in/mustafa-nahsan-a811b2307/"
                     className="bg-purple-500/20 p-2 rounded-lg hover:bg-purple-500/40 transition-colors duration-300"
+                    target="_blank"
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -225,8 +226,9 @@ const Contact = () => {
                     </svg>
                   </a>
                   <a
-                    href="#"
+                    href="https://github.com/mustafaf8"
                     className="bg-purple-500/20 p-2 rounded-lg hover:bg-purple-500/40 transition-colors duration-300"
+                    target="_blank"
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -238,7 +240,9 @@ const Contact = () => {
                     </svg>
                   </a>
                   <a
-                    href="#"
+                    href="https://www.instagram.com/mustafa_3dr/profilecard/?igsh=eDVpNGc1YTI4Nmc3" // Kullanıcı adınızı buraya ekleyin
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="bg-purple-500/20 p-2 rounded-lg hover:bg-purple-500/40 transition-colors duration-300"
                   >
                     <svg
@@ -247,11 +251,14 @@ const Contact = () => {
                       fill="currentColor"
                       viewBox="0 0 24 24"
                     >
-                      <path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-2.917 16.083c-2.258 0-4.083-1.825-4.083-4.083s1.825-4.083 4.083-4.083c1.103 0 2.024.402 2.735 1.067l-1.107 1.068c-.304-.292-.834-.63-1.628-.63-1.394 0-2.531 1.155-2.531 2.579 0 1.424 1.138 2.579 2.531 2.579 1.616 0 2.224-1.162 2.316-1.762h-2.316v-1.4h3.855c.036.204.064.408.064.677.001 2.332-1.563 3.988-3.919 3.988zm9.917-3.5h-1.75v1.75h-1.167v-1.75h-1.75v-1.166h1.75v-1.75h1.167v1.75h1.75v1.166z" />
+                      <path d="M7.75 2h8.5A5.25 5.25 0 0121.5 7.25v8.5A5.25 5.25 0 0116.25 21h-8.5A5.25 5.25 0 012.5 15.75v-8.5A5.25 5.25 0 017.75 2zm6.5 2.5a1 1 0 100 2 1 1 0 000-2zM12 7a5 5 0 00-5 5 5 5 0 0010 0 5 5 0 00-5-5zm0 2a3 3 0 110 6 3 3 0 010-6z" />
                     </svg>
                   </a>
                   <a
-                    href="#"
+                    href="src/assets/img/MustafaNahsanCV.pdf"
+                    download="Mustafa_Nahsan_CV.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="bg-purple-500/20 p-2 rounded-lg hover:bg-purple-500/40 transition-colors duration-300"
                   >
                     <svg
@@ -260,7 +267,16 @@ const Contact = () => {
                       fill="currentColor"
                       viewBox="0 0 24 24"
                     >
-                      <path d="M12 0c-6.628 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm6.209 8.741c.218 4.878-3.419 10.309-9.879 10.309-1.964 0-3.79-.574-5.33-1.56.272.033.547.05.823.05 1.616 0 3.104-.552 4.282-1.476-1.509-.027-2.783-1.026-3.222-2.396.211.04.428.062.647.062.314 0 .618-.042.905-.12-1.578-.317-2.766-1.711-2.766-3.381 0-.015 0-.029.001-.043.464.258.996.414 1.56.432-.927-.619-1.537-1.676-1.537-2.874 0-.632.169-1.223.466-1.732 1.7 2.088 4.247 3.461 7.115 3.605-.059-.254-.09-.518-.09-.786 0-1.904 1.542-3.448 3.448-3.448.992 0 1.888.419 2.517 1.09.784-.155 1.52-.442 2.188-.836-.257.798-.802 1.464-1.511 1.886.696-.083 1.358-.267 1.975-.539-.459.691-1.04 1.297-1.712 1.783z" />
+                      <text
+                        x="50%"
+                        y="50%"
+                        dominant-baseline="middle"
+                        text-anchor="middle"
+                        font-size="14"
+                        font-weight="bold"
+                      >
+                        CV
+                      </text>
                     </svg>
                   </a>
                 </div>
@@ -354,7 +370,7 @@ const Contact = () => {
                     name="message"
                     value={formData.message}
                     onChange={handleChange}
-                    rows="3"
+                    rows="2"
                     className="w-full bg-black/70 border border-purple-500/50 text-white rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-purple-500 text-xs"
                     required
                   ></textarea>

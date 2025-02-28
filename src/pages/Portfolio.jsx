@@ -24,59 +24,57 @@ const Portfolio = () => {
       id: 1,
       title: "E-Ticaret Web Sitesi",
       category: "Web",
-      image: "https://picsum.photos/id/1/600/400",
+      image: "src/assets/img/ecommarce.png",
       description:
         "Modern bir e-ticaret platformu için responsive tasarım ve geliştirme.",
-      technologies: ["React", "Node.js", "MongoDB"],
-      link: "#",
+      technologies: ["React", "Node.js", "MS SQL"],
     },
     {
       id: 2,
       title: "Mobil Fitness Uygulaması",
       category: "Mobil",
-      image: "https://picsum.photos/id/2/600/400",
-      description: "Fitness takibi için kapsamlı bir mobil uygulama.",
-      technologies: ["React Native", "Firebase"],
-      link: "#",
+      image: "src/assets/img/eavukat1.png",
+      description: "Fitness ve kalori takibi için kapsamlı bir mobil uygulama.",
+      technologies: ["Flutter", "Firebase"],
+      link: "https://github.com/mustafaf8/Fitfusion",
     },
     {
       id: 3,
       title: "Kurumsal Kimlik Tasarımı",
       category: "Grafik",
-      image: "https://picsum.photos/id/3/600/400",
+      image: "src/assets/img/uiux.png",
       description:
         "Bir teknoloji şirketi için tam kapsamlı kurumsal kimlik tasarımı.",
       technologies: ["Illustrator", "Photoshop"],
-      link: "#",
     },
     {
       id: 4,
       title: "Finansal Dashboard UI",
       category: "UI/UX",
-      image: "https://picsum.photos/id/4/600/400",
+      image: "src/assets/img/dashbord.png",
       description:
         "Finans uygulaması için kullanıcı dostu dashboard arayüzü tasarımı.",
       technologies: ["Figma", "Adobe XD"],
-      link: "#",
     },
     {
       id: 5,
       title: "Blog Platformu",
       category: "Web",
-      image: "https://picsum.photos/id/5/600/400",
+      image: "src/assets/img/cafe.png",
       description:
         "İçerik üreticileri için modern blog platformu geliştirmesi.",
       technologies: ["React", "GraphQL", "Tailwind CSS"],
-      link: "#",
+      link: "https://cafe-83756.web.app/",
     },
     {
       id: 6,
-      title: "Sosyal Medya Uygulaması",
+      title: "Avukatlık Uygulaması",
       category: "Mobil",
-      image: "https://picsum.photos/id/6/600/400",
-      description: "Fotoğraf paylaşımı odaklı sosyal medya uygulaması.",
+      image: "src/assets/img/eavukat.png",
+      description:
+        "Davaların kolay çözümlenmsine yardımcı avukatlık uygulaması.",
       technologies: ["Flutter", "Firebase"],
-      link: "#",
+      link: "https://github.com/mustafaf8/E-Avukat",
     },
   ];
 
@@ -206,7 +204,8 @@ const Portfolio = () => {
                 {/* Detay Butonu */}
                 <a
                   href={project.link}
-                  className="inline-block bg-gradient-to-r from-purple-500 to-blue-600 text-white px-4 py-1 rounded-full hover:from-purple-600 hover:to-blue-700 transition-colors duration-300"
+                  className=" inline-block bg-gradient-to-r from-purple-500 to-blue-600 text-white px-4 py-1 rounded-full hover:from-purple-600 hover:to-blue-700 transition-colors duration-300"
+                  target="_blank"
                 >
                   Detayları Gör
                 </a>

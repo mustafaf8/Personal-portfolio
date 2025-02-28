@@ -68,7 +68,7 @@ const About = () => {
 
       <div className="relative min-h-screen bg-black text-white pt-20">
         {/* Hero Section with Dark Background */}
-        <section className="relative pt-20 pb-12">
+        <section className="relative pt-20 pb-12 mt-10">
           <div className="container mx-auto px-4">
             <div className="flex flex-col md:flex-row items-center">
               <AnimatedSection className="md:w-1/2 mb-8 md:mb-0" delay={1.5}>
@@ -81,9 +81,9 @@ const About = () => {
                   transition={{ duration: 0.8, delay: 0.3 }}
                   className="text-lg text-gray-300 max-w-2xl mx-auto"
                 >
-                  bir web geliştirici ve tasarımcı olarak dijital dünyada
-                  yaratıcı çözümler sunuyorum. Modern teknolojileri kullanarak
-                  kullanıcı dostu ve etkileyici web deneyimleri oluşturmak için
+                  bir software devaloper olarak dijital dünyada yaratıcı
+                  çözümler sunuyorum. Modern teknolojileri kullanarak kullanıcı
+                  odaklı etkileyici deneyimler ve çözümler oluşturmak için
                   çalışıyorum.
                 </motion.p>
 
@@ -107,7 +107,7 @@ const About = () => {
                     animate={{ x: 0, opacity: 1 }}
                     transition={{ duration: 0.5 }}
                     className="bg-gradient-to-r from-purple-500 to-blue-600 text-white px-6 py-3 rounded-full hover:from-purple-600 hover:to-blue-700 transition-colors duration-300"
-                    whileHover={{ scale: 1.05 }}
+                    whileHover={{ scale: 1.01 }}
                     whileTap={{ scale: 0.95 }}
                   >
                     İletişime Geç
@@ -118,7 +118,7 @@ const About = () => {
                     animate={{ x: 0, opacity: 1 }}
                     transition={{ duration: 0.5 }}
                     className="bg-gradient-to-r from-purple-500 to-blue-600 text-white px-6 py-3 rounded-full hover:from-purple-600 hover:to-blue-700 transition-colors duration-300"
-                    whileHover={{ scale: 1.05 }}
+                    whileHover={{ scale: 1.01 }}
                     whileTap={{ scale: 0.95 }}
                   >
                     Projelerimi Gör
@@ -152,7 +152,7 @@ const About = () => {
         </section>
 
         {/* Skills Section */}
-        <section className="py-16 bg-gradient-to-b from-black via-purple-950/20 to-black mt-10">
+        <section className="py-16 bg-gradient-to-b from-black via-purple-950/20 to-black mt-30">
           <div className="container mx-auto px-4">
             <AnimatedSection delay={0.3}>
               <h2 className="text-3xl font-bold mb-12 text-center text-white">
@@ -189,11 +189,11 @@ const About = () => {
                     </svg>
                   </div>
                   <h3 className="text-xl font-semibold mb-2 text-white">
-                    Web Tasarımı
+                    Tasarım
                   </h3>
                   <p className="text-gray-300">
                     Kullanıcı dostu ve modern arayüzler tasarlayarak dijital
-                    deneyimleri geliştiriyorum.
+                    deneyimleri geliştiriyor, yenilikçi çözümler sunuyorum.
                   </p>
                 </motion.div>
               </AnimatedSection>
@@ -262,8 +262,9 @@ const About = () => {
                     Backend Teknolojileri
                   </h3>
                   <p className="text-gray-300">
-                    Node.js, Express ve veritabanı teknolojileri ile güvenli ve
-                    ölçeklenebilir API'lar geliştiriyorum.
+                    Node.js, Express ve veritabanı teknolojileri ile güvenli,
+                    ölçeklenebilir ve yüksek performanslı API'lar
+                    geliştiriyorum.
                   </p>
                 </motion.div>
               </AnimatedSection>
@@ -309,11 +310,13 @@ const About = () => {
                   >
                     <div className="flex justify-between mb-2">
                       <h3 className="text-xl font-semibold text-white">
-                        Kıdemli Web Geliştirici
+                        Software Devaloper
                       </h3>
-                      <span className="text-purple-400">2023 - Günümüz</span>
+                      <span className="text-purple-400">
+                        2025 - &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                      </span>
                     </div>
-                    <p className="text-gray-300 mb-1">XYZ Teknoloji</p>
+                    <p className="text-gray-300 mb-1">RMR Enerji</p>
                     <p className="text-gray-400">
                       Modern web uygulamaları geliştirme, takım liderliği ve
                       müşteri iletişimi konusunda sorumluluk aldım.
@@ -350,9 +353,9 @@ const About = () => {
                       <h3 className="text-xl font-semibold text-white">
                         Web Geliştirici
                       </h3>
-                      <span className="text-purple-400">2020 - 2023</span>
+                      <span className="text-purple-400">2024 - 2025</span>
                     </div>
-                    <p className="text-gray-300 mb-1">ABC Digital Agency</p>
+                    <p className="text-gray-300 mb-1">Pressday</p>
                     <p className="text-gray-400">
                       Kurumsal web siteleri ve e-ticaret uygulamaları
                       geliştirdim, müşteri gereksinimlerini analiz ettim.
@@ -389,9 +392,9 @@ const About = () => {
                       <h3 className="text-xl font-semibold text-white">
                         Bilgisayar Mühendisliği
                       </h3>
-                      <span className="text-purple-400">2016 - 2020</span>
+                      <span className="text-purple-400">2021 - 2025</span>
                     </div>
-                    <p className="text-gray-300 mb-1">XYZ Üniversitesi</p>
+                    <p className="text-gray-300 mb-1">Selçuk Üniversitesi</p>
                     <p className="text-gray-400">
                       Yazılım geliştirme, algoritma ve veri yapıları üzerine
                       kapsamlı eğitim aldım. Bitirme projesi olarak e-öğrenme

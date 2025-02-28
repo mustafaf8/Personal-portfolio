@@ -325,16 +325,8 @@ const Home = () => {
             transition={{ duration: 0.8, delay: 0.3 }}
             className="text-lg sm:text-xl md:text-2xl italic text-blue-300 animate-pulse drop-shadow-md"
           >
-            Yaratıcı Web Tasarımları ve Fonksiyonel Çözümler Sunuyorum
+            Yaratıcı Uygulamalar ve Fonksiyonel Çözümler Sunuyorum
           </motion.p>
-
-          {/* Buton */}
-          <a
-            href="/portfolio"
-            className="inline-block px-8 py-4 rounded-full font-semibold text-lg text-white bg-gradient-to-r from-purple-500 to-blue-600 hover:from-purple-600 hover:to-blue-700 hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-blue-500/50"
-          >
-            Projelerimi Gör
-          </a>
         </div>
       </motion.div>
     </div>
