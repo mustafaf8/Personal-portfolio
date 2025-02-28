@@ -40,7 +40,7 @@ const About = () => {
             </div>
             <div className="md:w-1/2 md:pl-12">
               <div className="relative">
-                <div className="bg-purple-500/20 w-64 h-64 md:w-80 md:h-80 rounded-full absolute top-0 left-0"></div>
+                <div className="bg-purple-500/40 w-64 h-64 md:w-80 md:h-80 rounded-full absolute top-0 left-0"></div>
                 <img
                   src="src/assets/img/potfoypic.png"
                   alt="Mustafa Nahsan"
