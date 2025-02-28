@@ -318,7 +318,7 @@ const About = () => {
                     </div>
                     <p className="text-gray-300 mb-1">RMR Enerji</p>
                     <p className="text-gray-400">
-                      Modern web uygulamaları geliştirme, takım liderliği ve
+                      Modern yazılım uygulamaları geliştirme, takım liderliği ve
                       müşteri iletişimi konusunda sorumluluk aldım.
                     </p>
                   </motion.div>

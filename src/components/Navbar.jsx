@@ -66,7 +66,7 @@ const Navbar = () => {
         <ul
           className={`md:flex space-x-6 ${
             isOpen
-              ? "block absolute top-full left-0 w-full bg-secondary/80 backdrop-blur-md p-4 pl-10 rounded-b-2xl"
+              ? "block absolute top-full left-0 w-full bg-secondary/96 backdrop-blur-md p-4 pl-10 rounded-b-2xl"
               : "hidden"
           } md:block`}
         >
