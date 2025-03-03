@@ -24,7 +24,7 @@ const Portfolio = () => {
       id: 1,
       title: "E-Ticaret Web Sitesi",
       category: "Web",
-      image: "src/assets/img/ecommarce.png",
+      image: "/assets/img/ecommarce.png",
       description:
         "Modern bir e-ticaret platformu için responsive tasarım ve geliştirme.",
       technologies: ["React", "Node.js", "MS SQL"],
@@ -33,7 +33,7 @@ const Portfolio = () => {
       id: 2,
       title: "Mobil Fitness Uygulaması",
       category: "Mobil",
-      image: "src/assets/img/eavukat1.png",
+      image: "/assets/img/eavukat1.png",
       description: "Fitness ve kalori takibi için kapsamlı bir mobil uygulama.",
       technologies: ["Flutter", "Firebase"],
       link: "https://github.com/mustafaf8/Fitfusion",
@@ -42,7 +42,7 @@ const Portfolio = () => {
       id: 3,
       title: "Kurumsal Kimlik Tasarımı",
       category: "Grafik",
-      image: "src/assets/img/uiux.png",
+      image: "/assets/img/uiux.png",
       description:
         "Bir teknoloji şirketi için tam kapsamlı kurumsal kimlik tasarımı.",
       technologies: ["Illustrator", "Photoshop"],
@@ -51,7 +51,7 @@ const Portfolio = () => {
       id: 4,
       title: "Finansal Dashboard UI",
       category: "UI/UX",
-      image: "src/assets/img/dashbord.png",
+      image: "/assets/img/dashbord.png",
       description:
         "Finans uygulaması için kullanıcı dostu dashboard arayüzü tasarımı.",
       technologies: ["Figma", "Adobe XD"],
@@ -60,7 +60,7 @@ const Portfolio = () => {
       id: 5,
       title: "Blog Platformu",
       category: "Web",
-      image: "src/assets/img/cafe.png",
+      image: "/assets/img/cafe.png",
       description:
         "İçerik üreticileri için modern blog platformu geliştirmesi.",
       technologies: ["React", "GraphQL", "Tailwind CSS"],
@@ -70,7 +70,7 @@ const Portfolio = () => {
       id: 6,
       title: "Avukatlık Uygulaması",
       category: "Mobil",
-      image: "src/assets/img/eavukat.png",
+      image: "/assets/img/eavukat.png",
       description:
         "Davaların kolay çözümlenmsine yardımcı avukatlık uygulaması.",
       technologies: ["Flutter", "Firebase"],

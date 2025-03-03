@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import { db } from "./../firebaseConfig";
+import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 
 const Contact = () => {
-  // Loading state
   const [loading, setLoading] = useState(true);
-
-  // Form verileri
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -15,7 +14,6 @@ const Contact = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null);
 
-  // Loading ekranını 1.5 saniye sonra gizle
   useEffect(() => {
     const timer = setTimeout(() => {
       setLoading(false);
@@ -35,12 +33,20 @@ const Contact = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Form gönderimini simüle et
-    setTimeout(() => {
+    try {
+      // Add message to Firestore under 'users' collection with email as document ID
+      await addDoc(collection(db, "users", formData.email, "messages"), {
+        name: formData.name,
+        email: formData.email,
+        subject: formData.subject,
+        message: formData.message,
+        timestamp: serverTimestamp(),
+      });
+
       setIsSubmitting(false);
       setSubmitStatus("success");
 
-      // Başarılı gönderimden sonra formu sıfırla
+      // Reset form
       setFormData({
         name: "",
         email: "",
@@ -48,11 +54,15 @@ const Contact = () => {
         message: "",
       });
 
-      // 5 saniye sonra başarı mesajını temizle
+      // Clear success message after 5 seconds
       setTimeout(() => {
         setSubmitStatus(null);
       }, 5000);
-    }, 1500);
+    } catch (error) {
+      console.error("Error adding document: ", error);
+      setIsSubmitting(false);
+      setSubmitStatus("error");
+    }
   };
 
   return (
@@ -255,7 +265,7 @@ const Contact = () => {
                     </svg>
                   </a>
                   <a
-                    href="src/assets/img/MustafaNahsanCV.pdf"
+                    href="/assets/img/MustafaNahsanCV.pdf"
                     download="Mustafa_Nahsan_CV.pdf"
                     target="_blank"
                     rel="noopener noreferrer"

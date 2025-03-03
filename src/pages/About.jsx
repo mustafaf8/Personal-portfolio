@@ -136,7 +136,7 @@ const About = () => {
                     initial={{ opacity: 0, scale: 0.8 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.5, delay: 0.6 }}
-                    src="src/assets/img/potfoypic.png"
+                    src="/assets/img/potfoypic.png"
                     alt="Mustafa Nahsan"
                     className="relative z-10 rounded-full w-64 h-64 md:w-80 md:h-80 object-cover border-4 [transform:scalex(-1)] border-purple-600/80"
                   />

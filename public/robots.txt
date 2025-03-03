@@ -1,4 +1,4 @@
 User-agent: *
 Disallow: /admin
 Allow: /
-Sitemap: https://www.mustafanahsan.live/sitemap.xml
+Sitemap: https://mustafanahsan.live/sitemap.xml
