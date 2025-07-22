@@ -1,65 +1,132 @@
-React ve Tailwind Projesi
-Bu proje, React kullanılarak geliştirilmiş ve Tailwind CSS ile stillendirilmiştir. Responsive (duyarlı) tasarımı sayesinde, farklı ekran boyutlarında sorunsuz bir görüntüleme deneyimi sunar. Proje birkaç sayfadan oluşmakta olup, kullanıcıların Ana Sayfa, Hakkımda, Portföy, Hizmetler ve İletişim gibi temel bölümlere kolayca erişmesine olanak tanır.
+# Mustafa Nahsan - Personal Portfolio Website ✨
 
-İçindekiler
-Özellikler
-Kurulum
-Kullanım
-Sayfalar
-Katkıda Bulunma
-Lisans
-Özellikler
-React ile bileşen tabanlı mimari
-Tailwind CSS ile hızlı ve kolay tasarım
-Responsive (duyarlı) yapı sayesinde mobil uyumluluk
-Modern ve minimalist arayüz
-Çoklu sayfa yapısı (Ana sayfa, Hakkımda, Portföy, Hizmetler, İletişim)
-Kolay navigasyon
-İsteğe göre genişletilebilir ve özelleştirilebilir
-Kurulum
-Projeyi Klonlayın:
-bash
-Kopyala
-git clone https://github.com/kullanici-adi/proje-adi.git
-Klasöre Geçiş Yapın:
-bash
-Kopyala
-cd proje-adi
-Gerekli Bağımlılıkları Yükleyin:
-bash
-Kopyala
-npm install
-Geliştirme Sunucusunu Başlatın:
-bash
-Kopyala
-npm start
-Tarayıcıdan Projeye Erişin: Proje varsayılan olarak http://localhost:3000 adresinde çalışacaktır.
-Kullanım
-Projeyi başlattıktan sonra tarayıcınızda açılan ana sayfadan diğer sayfalara (Hakkımda, Portföy, Hizmetler, İletişim) geçebilirsiniz.
-Tailwind ile stil dosyalarını düzenleyerek projeyi istediğiniz tasarım doğrultusunda özelleştirebilirsiniz.
-Ekstra sayfalar veya bileşenler eklemek isterseniz, src klasöründe React bileşenlerini oluşturup projeye dahil edebilirsiniz.
-Sayfalar
-Ana Sayfa (Home): Projenin giriş noktası, genel bilgileri ve yönlendirmeleri içerir.
-Hakkımda (About): Kişisel veya kurumsal bilgilerin yer aldığı bölüm.
-Portföy (Portfolio): Projeler, çalışmalar veya referanslar burada sergilenir.
-Hizmetler (Services): Verilen hizmetlerin listesi ve detayları.
-İletişim (Contact): İletişim formu veya iletişim bilgilerini içerir.
-Katkıda Bulunma
-Bu projeyi fork edin.
-Yeni bir dal (branch) oluşturun:
-bash
-Kopyala
-git checkout -b ozellik/yenilik
-Değişikliklerinizi yapın ve commit edin:
-bash
-Kopyala
-git commit -m "Yeni bir özellik eklendi"
-Dalınızı (branch) uzak depoya (remote) gönderin:
-bash
-Kopyala
-git push origin ozellik/yenilik
-Bir Pull Request açın.
-Her türlü katkı ve geri bildiriminiz için şimdiden teşekkür ederiz!
+[![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)](https://reactjs.org/)
+[![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)](https://vitejs.dev/)
+[![Firebase](https://img.shields.io/badge/Firebase-FFCA28?style=for-the-badge&logo=firebase&logoColor=black)](https://firebase.google.com/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
+[![Framer Motion](https://img.shields.io/badge/Framer_Motion-0055FF?style=for-the-badge&logo=framer&logoColor=white)](https://www.framer.com/motion/)
+
+This is the repository for my personal portfolio website, a modern and interactive single-page application designed to showcase my skills, projects, and professional experience as a software developer. The site is built to provide a seamless and engaging user experience.
+
+---
+
+## 📝 Table of Contents
+
+- [✨ Core Features](#-core-features)
+- [🛠️ Tech Stack](#️-tech-stack)
+- [📂 Project Structure](#-project-structure)
+- [🚀 Setup and Launch](#-setup-and-launch)
+- [🔑 Environment Variables (.env)](#-environment-variables-env)
+- [🤝 Contributing](#-contributing)
+
+---
+
+## ✨ Core Features
+
+-   **Interactive Home Page:** A captivating landing page with a dynamic canvas animation that reacts to user interaction.
+-   **Detailed About Section:** A comprehensive overview of my skills, expertise, and professional journey presented in a timeline format.
+-   **Services Overview:** A clear presentation of the services I offer, including Web Development, Mobile App Development, and UI/UX Design.
+-   **Filterable Portfolio Gallery:** An interactive gallery showcasing my projects, which can be filtered by category (Web, Mobile, UI/UX, etc.).
+-   **Firebase-Powered Contact Form:** A fully functional contact form that securely stores user messages in a Firebase Firestore database.
+-   **Smooth Animations & Transitions:** Enriched user experience with fluid animations and page transitions powered by `Framer Motion`.
+-   **Fully Responsive Design:** A clean and modern interface that is fully responsive and optimized for all devices, from mobile to desktop.
+
+---
+
+## 🛠️ Tech Stack
+
+### Frontend
+
+-   **React:** The core library for building the user interface.
+-   **Vite:** A next-generation frontend tooling for a faster and leaner development experience.
+-   **React Router DOM:** For handling client-side routing and navigation between pages.
+-   **Tailwind CSS:** A utility-first CSS framework for rapid and custom UI development.
+-   **Framer Motion:** For creating beautiful and fluid animations.
+-   **Firebase (Client SDK):** Used for integrating the Firestore database to handle contact form submissions.
+-   **React Intersection Observer:** To trigger animations as elements scroll into view.
+
+---
+
+## 📂 Project Structure
+
+The project follows a modular and organized structure, typical for modern React applications.
+
+```
+/
+├── public/
+│   └── assets/
+│       └── img/          # Project images and assets
+├── src/
+│   ├── components/       # Reusable components (Navbar, Footer, FaqItem, etc.)
+│   ├── pages/            # Page components (Home, About, Portfolio, etc.)
+│   ├── App.jsx           # Main application component with routing
+│   ├── firebaseConfig.js # Firebase configuration
+│   ├── index.css         # Global styles and Tailwind CSS setup
+│   └── main.jsx          # Application entry point
+├── .env.example          # Example environment variables
+└── package.json
+```
+
+---
+
+## 🚀 Setup and Launch
+
+### Prerequisites
+
+-   [Node.js](https://nodejs.org/en/) (v18.x or higher)
+-   [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/)
+
+### Installation Steps
+
+1.  **Clone the repository:**
+    ```bash
+    git clone [https://github.com/your-username/your-repo-name.git](https://github.com/your-username/your-repo-name.git)
+    cd your-repo-name
+    ```
+
+2.  **Install dependencies:**
+    ```bash
+    npm install
+    ```
+
+3.  **Set up environment variables:**
+    Create a `.env.local` file in the project root. Copy the contents of `.env.example` and fill in your own Firebase project credentials. (See the [Environment Variables](#-environment-variables-env) section for details.)
+
+4.  **Start the development server:**
+    ```bash
+    npm run dev
+    ```
+    The application will be running on `http://localhost:5173`.
+
+---
+
+## 🔑 Environment Variables (.env)
+
+To run this project, you need to create a `.env.local` file in the root directory and add the following configuration variables with your own Firebase project details.
+
+```env
+# Firebase Client SDK - Fill these with your own project credentials
+VITE_FIREBASE_API_KEY=AIzaSy...
+VITE_FIREBASE_AUTH_DOMAIN=your-project.firebaseapp.com
+VITE_FIREBASE_PROJECT_ID=your-project-id
+VITE_FIREBASE_STORAGE_BUCKET=your-project.appspot.com
+VITE_FIREBASE_MESSAGING_SENDER_ID=...
+VITE_FIREBASE_APP_ID=...
+VITE_FIREBASE_MEASUREMENT_ID=G-...
+```
+
+---
+
+## 🤝 Contributing
+
+Contributions are welcome! If you have suggestions or want to improve the project, please follow these steps:
+
+1.  **Fork** this repository.
+2.  Create a new feature branch (`git checkout -b feature/new-feature`).
+3.  **Commit** your changes (`git commit -m 'feat: Add some new feature'`).
+4.  **Push** to the branch (`git push origin feature/new-feature`).
+5.  Open a **Pull Request**.
+
 
 ![image](https://github.com/user-attachments/assets/e94d9945-89d8-4352-8d89-1a8fe56fd82e)
 ![image](https://github.com/user-attachments/assets/bfcf4341-e789-4457-8aa3-59dc426c02ad)
